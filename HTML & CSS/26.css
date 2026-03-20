@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.gallery-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* 1. Grid Setup for Responsiveness */
+.gallery-container {
+    display: grid;
+    /* Mobile: 1 Column */
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* Small lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Fixed height for uniformity */
+    object-fit: cover; /* Crops image to fit the box perfectly */
+    display: block;
+}
+
+figcaption {
+    padding: 15px;
+    text-align: center;
+}
+
+figcaption h3 {
+    font-size: 1.1rem;
+    color: #222;
+}
+
+figcaption p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* 2. Responsive Breakpoints */
+/* Tablet: 2 Columns */
+@media (min-width: 600px) {
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop: 4 Columns */
+@media (min-width: 1000px) {
+    .gallery-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
